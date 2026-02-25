@@ -6,7 +6,7 @@ function App() {
 
   // Get
   function fetchNotes() {
-    axios.get("https://backend-0gyc.onrender.com//api/notes")
+    axios.get("https://backend-0gyc.onrender.com/api/notes")
       .then((res) => {
         setNotes(res.data.notes);
       });
@@ -20,7 +20,7 @@ function App() {
     e.preventDefault()
     const { title, description } = e.target.elements;
 
-    axios.post("https://backend-0gyc.onrender.com//api/notes", {
+    axios.post("https://backend-0gyc.onrender.com/api/notes", {
       title: title.value,
       description: description.value
     })
@@ -31,7 +31,7 @@ function App() {
 
   //Delete
   function handleDeleteNote(noteId) {
-    axios.delete("https://backend-0gyc.onrender.com//api/notes/" + noteId)
+    axios.delete("https://backend-0gyc.onrender.com/api/notes/" + noteId)
       .then(res => {
         fetchNotes();
       });
@@ -41,7 +41,7 @@ function App() {
   function handleUpdateDescription(noteId) {
     const newDescription = prompt("Enter New Description");
 
-    axios.patch("https://backend-0gyc.onrender.com//api/notes/" + noteId, { description: newDescription })
+    axios.patch("https://backend-0gyc.onrender.com/api/notes/" + noteId, { description: newDescription })
       .then(res => {
         fetchNotes();
       });
